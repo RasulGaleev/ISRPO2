@@ -1,0 +1,30 @@
+﻿@model List<WebApplication1.Models.Book>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Catalog</title>
+</head>
+<body>
+
+    <h2>Catalog</h2>
+
+    @foreach (var book in Model)
+    {
+        <div>
+            <strong>@book.Title</strong> by @book.Author, Published in @book.Year
+            <form asp-action="RemoveBook" asp-route-id="@book.Id" method="post">
+                <input type="submit" value="Remove" />
+            </form>
+        </div>
+    }
+
+    <h2>Search</h2>
+
+    <form asp-action="Search" method="get">
+        <input type="text" name="searchTerm" placeholder="Search" />
+        <input type="submit" value="Search" />
+    </form>
+
+</body>
+</html>

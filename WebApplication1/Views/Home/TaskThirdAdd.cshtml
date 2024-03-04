@@ -1,0 +1,41 @@
+﻿@model WebApplication1.Models.Book
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Book</title>
+</head>
+<body>
+
+    <h2>Add New Book</h2>
+
+    @if (ViewData["ErrorMessage"] != null)
+    {
+        <div style="color: red; font-weight: bold;">
+            @ViewData["ErrorMessage"]
+        </div>
+    }
+
+    <form asp-action="TaskThirdAdd" method="post">
+        <div>
+            <label asp-for="Author">Author:</label>
+            <input asp-for="Author" />
+            <span asp-validation-for="Author"></span>
+        </div>
+        <div>
+            <label asp-for="Title">Title:</label>
+            <input asp-for="Title" />
+            <span asp-validation-for="Title"></span>
+        </div>
+        <div>
+            <label asp-for="Year">Year:</label>
+            <input asp-for="Year" type="number" />
+            <span asp-validation-for="Year"></span>
+        </div>
+        <div>
+            <input type="submit" value="Add Book" />
+        </div>
+    </form>
+
+</body>
+</html>
